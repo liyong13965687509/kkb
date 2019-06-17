@@ -14,7 +14,7 @@ module.exports = {
                                 id: 2,
                                 text: 'Python全栈架构师',
                                 price: 199
-                            },]
+                            }]
                     })
                 })
             }

@@ -18,13 +18,20 @@
         </el-form>
 
         <div>-------------------------------------------------------</div>
-        <k-form-item label="用户名" prop="name">
-            <k-input v-model="ruleForm.name"></k-input>
-        </k-form-item>
-        <k-form-item label="密码" prop="pwd">
-            <k-input v-model="ruleForm.pwd" type="password"></k-input>
-        </k-form-item>
-        {{ruleForm}}
+
+        <k-form :model="ruleForm" :rules="rules" ref="loginForm2">
+            <k-form-item label="用户名" prop="name">
+                <k-input v-model="ruleForm.name"></k-input>
+            </k-form-item>
+            <k-form-item label="密码" prop="pwd">
+                <k-input v-model="ruleForm.pwd" type="password"></k-input>
+            </k-form-item>
+            <k-form-item>
+                <el-button type="primary" @click="submitForm2()">登录</el-button>
+            </k-form-item>
+            {{ruleForm}}
+        </k-form>
+
 
 
     </div>
@@ -33,12 +40,14 @@
 <script>
     import KFormItem from './FormItem.vue';
     import KInput from './Input.vue';
+    import KForm from './Form.vue';
 
     export default {
         name: "FormTest",
         components:{
             KFormItem,
-            KInput
+            KInput,
+            KForm
         },
         props: {
             title: {
@@ -66,6 +75,9 @@
                         return false;
                     }
                 })
+            },
+            submitForm2(){
+
             }
         },
     }

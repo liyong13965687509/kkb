@@ -19,6 +19,14 @@
                 errorMessage: ''
             }
         },
+        created() {
+            this.$on('validate',this.validate)
+        },
+        methods: {
+            validate(value) {
+
+            }
+        },
     }
 </script>
 

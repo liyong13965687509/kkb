@@ -42,6 +42,11 @@
 
     export default {
         name: 'app',
+        provide(){
+            return {
+                someValue:'来自祖上的遗产'
+            }
+        },
         components: {
             HelloWorld,
             Cart,

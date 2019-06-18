@@ -39,13 +39,13 @@
         props: ['name'],
         data() {
             return {
-                cart: []
+                cart: JSON.parse(localStorage.getItem("cartLists")) || []
             }
         },
-        created(){
+        created() {
             //监听父组件添加商品事件
             // this.$root.$on('addCart',good=>{
-            this.$bus.$on('addCart',good=>{
+            this.$bus.$on('addCart', good => {
                 const ret = this.cart.find(v => v.id === good.id);
 
                 if (ret) {//购物车里已有该商品
@@ -95,6 +95,16 @@
                 return num;
             }
         },
+        watch: {
+            cart: {
+                handler(newValue, oldValue ) {
+                    // 数据持久化
+                    localStorage.setItem("cartLists", JSON.stringify(newValue));
+                },
+                deep: true//深度监听
+            },
+        },
+
     }
 </script>
 

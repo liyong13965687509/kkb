@@ -1,6 +1,21 @@
 <template>
     <div id="app">
-        <img alt="Vue logo" src="./assets/logo.png">
+        <!--element测试-->
+        <form-test :title="titleVar"></form-test>
+        <k-button @lalala="handleClick1"></k-button>
+        <k-input v-model="inputV"></k-input>
+        {{inputV}}
+
+        <Win>
+            <template slot="head">
+                <h3>window</h3>
+            </template>
+            content...
+            <template slot="foot">
+                <button>确定</button>
+            </template>
+        </Win>
+
         <HelloWorld msg="Welcome to Your Vue.js App"/>
 
         <!--循环-->
@@ -20,30 +35,37 @@
     import HelloWorld from './components/HelloWorld.vue'
     import Cart from './components/Cart.vue'
     import axios from 'axios'
+    import FormTest from './components/FormTest.vue';
+    import KButton from './components/Button.vue';
+    import KInput from './components/Input.vue';
+    import Win from './components/Win.vue';
 
     export default {
         name: 'app',
+        components: {
+            HelloWorld,
+            Cart,
+            FormTest,
+            KButton,
+            KInput,
+            Win
+        },
         data() {
             return {
                 name: '购物车',
                 showName: false,
-                goods: [
-
-                ],
+                goods: [],
                 text: '',
+                titleVar: 'form表单',
+                inputV: '3124'
             }
         },
-        components: {
-            HelloWorld,
-            Cart
-        },
-        async created(){
+        async created() {
             // 查询产品列表
             try {
-                const res=await axios.get('/api/goods');
-                console.log(res)
-                this.goods=res.data.list;
-            }catch (e) {
+                const res = await axios.get('/api/goods');
+                this.goods = res.data.list;
+            } catch (e) {
                 //错误处理
             }
         },
@@ -53,8 +75,14 @@
                 const good = this.goods[i];
 
                 // 派发事件
-                this.$bus.$emit('addCart',good);
+                this.$bus.$emit('addCart', good);
                 // this.$root.$emit('addCart',good);
+            },
+            handleClick1(obj) {
+                console.log(obj)
+            },
+            inputChange(str) {
+                this.inputV = str;
             }
         },
 

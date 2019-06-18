@@ -1,7 +1,7 @@
 module.exports = {
     configureWebpack: {
         devServer: {
-            before(app) {
+            before(app) {//中间件
                 app.get('/api/goods', function (req, res) {
                     res.json({
                         code: 0,

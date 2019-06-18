@@ -3,20 +3,33 @@
     *创建vue create vue-cart
     *cd vue-cart
     *启动 npm run serve
-3.条件与循环
-4.事件处理
-5.动态样式
-6.计算属性：需要额外加工data中数据的时候
+3.条件与循环 (v-if、v-for)
+4.事件处理 (@click)
+5.动态样式 (:class="{active:isActive}") 类名active
+6.计算属性：需要额外加工data中数据的时候 computed
 7.组件传值
-    * 总线模式
-8.模拟数据mock
+    * 总线模式 (以后用vuex做全局状态管理)
+8.模拟数据mock (模拟后台写法：vue.config.js)
     *axios
 
-9.数据持久化用localStorage
-
+9.数据持久化用localStorage (深度监听)
+10.组件的生命周期
+beforeCreate...组件创建之前
+created........组件创建之后
+beforeMount....渲染DOM之前
+Mounted........渲染DOM之后
+beforeUpdate...数据更新之前
+updated........数据更新之后
+beforeDestroy..组件销毁之前
+destroyed......组件销毁之后
 
 
 ---------------------------------------------------------
 
 
 ...arg 是 ES6扩展运算符
+
+ES6 数据方法使用：filter forEach find
+ES7 async await 使用（后面返回的必须是Promise对象）
+
+事件派发 $emit

@@ -60,7 +60,7 @@
                 ruleForm: {name: '', pwd: ''},
                 rules: {
                     name: [{required: true, message: '请输入名称'},
-                        {min: 6, max: 10, message: '请输入6-10位数字'}],
+                        {min: 6, max: 10, message: '请输入6-10个字符'}],
                     pwd: [{required: true, message: '请输入密码'}]
                 },
             }
@@ -77,7 +77,14 @@
                 })
             },
             submitForm2(){
-
+                this.$refs.loginForm2.validate(valid => {
+                    if (valid) {
+                        alert('提交登录！')
+                    } else {
+                        alert('校验不通过！')
+                        return false;
+                    }
+                })
             }
         },
     }

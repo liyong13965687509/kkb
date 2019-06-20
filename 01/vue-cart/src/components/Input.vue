@@ -1,6 +1,6 @@
 <template>
     <div>
-        <input :type="type" :value="inputValue" @input="inputHandler">
+        <input :type="type" :value="inputValue" @input="inputHandler" @blur="handlerBlur">
     </div>
 
 </template>
@@ -33,6 +33,12 @@
                 // 通知FormItem做校验 就是FormItem 将事件派发给自己去处理
                 // 不能写成this.$emit，
                 // 因为Form-item里面没法监听input组件，因为在Form-item里面现在是slot
+                this.$parent.$emit('validate',this.inputValue);
+            },
+            handlerBlur(e){
+                this.inputValue = e.target.value;
+                // 通知父组件值的更新
+                this.$emit('input', this.inputValue);
                 this.$parent.$emit('validate',this.inputValue);
             }
         },

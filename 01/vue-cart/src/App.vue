@@ -1,33 +1,42 @@
 <template>
     <div id="app">
+        <!--路由导航-->
+        <router-link to="/dashborard/static">static</router-link> |
+        <router-link to="/dashborard/page1/bar678">Page1</router-link> |
+        <router-link to="/dashborard/page2/66/vuejs?foo=bar">Page2</router-link> |
+        <router-link to="/login">login</router-link>
+
+
+        <!--路由组件的出口展示位置-->
+        <router-view></router-view>
         <!--element测试-->
-        <form-test :title="titleVar"></form-test>
-        <k-button @lalala="handleClick1"></k-button>
-        <k-input v-model="inputV"></k-input>
-        {{inputV}}
+        <!--<form-test :title="titleVar"></form-test>-->
+        <!--<k-button @lalala="handleClick1"></k-button>-->
+        <!--<k-input v-model="inputV"></k-input>-->
+        <!--{{inputV}}-->
 
-        <Win>
-            <template slot="head">
-                <h3>window</h3>
-            </template>
-            content...
-            <template slot="foot">
-                <button>确定</button>
-            </template>
-        </Win>
+        <!--<Win>-->
+            <!--<template slot="head">-->
+                <!--<h3>window</h3>-->
+            <!--</template>-->
+            <!--content...-->
+            <!--<template slot="foot">-->
+                <!--<button>确定</button>-->
+            <!--</template>-->
+        <!--</Win>-->
 
-        <HelloWorld msg="Welcome to Your Vue.js App"/>
+        <!--<HelloWorld msg="Welcome to Your Vue.js App"/>-->
 
-        <!--循环-->
-        <ul>
-            <li v-for="(good,index) in goods" :key="good.id">
-                <span>{{good.text}}</span>
-                <span>￥{{good.price}}</span>
-                <button @click="addGood(index)">加入购物车</button>
-            </li>
-        </ul>
-        <!--购物车-->
-        <cart :name="name"></cart>
+        <!--&lt;!&ndash;循环&ndash;&gt;-->
+        <!--<ul>-->
+            <!--<li v-for="(good,index) in goods" :key="good.id">-->
+                <!--<span>{{good.text}}</span>-->
+                <!--<span>￥{{good.price}}</span>-->
+                <!--<button @click="addGood(index)">加入购物车</button>-->
+            <!--</li>-->
+        <!--</ul>-->
+        <!--&lt;!&ndash;购物车&ndash;&gt;-->
+        <!--<cart :name="name"></cart>-->
     </div>
 </template>
 

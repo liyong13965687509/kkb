@@ -5,6 +5,7 @@ import Page1 from '@/views/Page1.vue'
 import Page2 from '@/views/Page2.vue'
 import Dashborard from '@/views/Dashborard.vue'
 // import Login from '@/views/Login.vue'
+import store from './store.js'
 
 // 插件的挂载
 Vue.use(Router)
@@ -30,10 +31,9 @@ const router= new Router({
             path: '/dashborard',
             component: Dashborard,
             beforeEnter(to,from,next){
-                if(window.isLogin){
+                if(store.state.isLogin){
                     next();
                 }else{
-                    console.log(to.path)
                     // 未登录，先去登录页，并记录下登录后要去的页面
                     next('/login?redirect='+to.path)
                 }

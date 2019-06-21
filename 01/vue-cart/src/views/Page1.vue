@@ -3,6 +3,7 @@
         <h3>page1</h3>
         <p><button @click="gotopage2">跳转至page2</button></p>
         <p>{{foo}}</p>
+        <p>{{$store.state.count}}</p>
     </div>
 </template>
 

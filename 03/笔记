@@ -9,7 +9,7 @@ Vue-router && Vuex
 动态路由：路由传参
 /:id 必选参
 
-?foo=bar 查询参
+?foo=bar 查询参(可选参)
 
 路由嵌套
 页面级的组件放在views文件夹中
@@ -20,7 +20,58 @@ Vue-router && Vuex
 *全局守卫
 
 异步组件：
-路由的懒加载
+路由的懒加载：通过import 导入
 
 Vuex全局状态管理（数据管理） store 组件银行 主要用于组件间共享数据管理，组件间的数据通信
 单向数据流 全局数据只能在组件银行里面进行更改
+
+
+帮助方法-----简化写法
+mapState,mapGetters,mapMutations,mapActions是一个函数会返回一个对象
+
+--------------------------------------------------------------------------------------
+
+复习：
+router
+1.配置路由 在router.js中完成
+2.安放路由出口 （router-view）
+3.导航链接（router-link）
+4.传参
+*必选参--/a
+*可选参--/a?foo=bar
+*获取参数:this.$route.query或this.$route.params
+5.路由嵌套
+6.异步路由
+7.路由守卫：多用于判断用户是否已登录等
+*router.beforeEach((to,from,next)=>{next();})
+
+
+vuex
+1.配置
+*{
+    state:{},//存放数据
+    mutations:{},//修改数据
+    getters：{},//类比计算属性
+    actions:{}//异步操作
+}
+
+2.使用
+*store.state.xx--------获取数据
+*store.getters.xx------处理数据
+*store.commit('xxx')---修改数据
+*store.dispatch('xxx')-修改异步返回的数据
+
+3.帮助方法
+*mapState
+*mapGetters
+*mapMutations
+*mapActions
+
+4.模块化
+
+---------------------------------------------------
+
+
+vue 的data 和vuex的state 都利用了数据劫持 实现数据的响应式
+
+

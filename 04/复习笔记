@@ -1,0 +1,33 @@
+复习：
+路由 Router
+1.配置 {path:'/login',component:Login}
+2.路由出口 router-view
+3.传参
+*必选参 /id $route.params.id
+*查询参 ?query=aaa $route.query.foo
+4.守卫
+*全局 router.beforeEach
+*路由 beforeEnter
+*组件 beforeRouteEnter
+5.嵌套 {children:[]} ----视图共享
+
+
+状态管理 Vuex
+1.配置
+{
+    state:{
+        cart:localStorage.getItem('cart')
+    },
+    mutations:{
+        addCart:(state)=>{
+
+        }
+    },
+    getters:{},
+    actions:{}
+}
+2.使用
+*store.commit('xxx')
+*store.dispatch('xxx')
+*store.state.xxx
+*store.getters.xxx

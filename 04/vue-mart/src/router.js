@@ -6,7 +6,7 @@ import store from './store.js'
 
 Vue.use(Router)
 
-const router=new Router({
+const router = new Router({
     mode: 'history',
     base: process.env.BASE_URL,
     routes: [
@@ -34,17 +34,21 @@ const router=new Router({
 })
 
 // 守卫
-router.beforeEach((to,from,next)=>{
-    if(to.meta.auth){
-
-    }
-    if(store.state.login){
-        //放行
+router.beforeEach((to, from, next) => {
+    if (to.meta.auth) {
+        // 需要认证,则检查令牌
+        if (store.state.token) {//已登陆
+            next();
+        } else {//未登录
+            //重定向到登录页
+            next({
+                path: '/login',
+                query: {redirect: to.path}
+            })
+        }
+    } else {
         next();
-    }else{
-        //重定向到登录页
-        next('/login?redirect='+to.path)
-
     }
 })
+
 export default router;

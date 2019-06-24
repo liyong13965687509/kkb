@@ -21,18 +21,25 @@ axios.interceptors.response.use(
         if (response.status == 200) {
             const data = response.data;
             if (data.code == -1) {
-                // 清空store缓存
-                store.commit('setToken', '');
-                localStorage.removeItem('token');
-
-                // 重定向到登录页
-                router.push({
-                        path: '/login',
-                        query: router.currentRoute.path
-                    });
+                logoutHandler();
             }
         }
         return response;
-    },err=>{
-
+    }, err => {
+        if(err.response.status===401){// 未授权
+            logoutHandler();
+        }
     });
+
+
+function logoutHandler(){
+    // 清空store缓存
+    store.commit('setToken', '');
+    localStorage.removeItem('token');
+
+    // 重定向到登录页
+    router.push({
+        path: '/login',
+        query: {redirect: router.currentRoute.path}
+    });
+}

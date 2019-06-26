@@ -41,12 +41,13 @@ const store = new Vuex.Store({
         },
         total: state => state.cart.reduce((num, v) => num += v.cartCount * v.price, 0),
 
-        // cartTotal: state => {//计算购物车中产品的总数
-        //     let num = 0;
-        //     state.cart.forEach(v => {
-        //         num += v.cartCount;
-        //     })
-        // }
+        cartTotal: state => {//计算购物车中产品的总数
+            let num = 0;
+            state.cart.forEach(v => {
+                num += v.cartCount;
+            })
+            return num;
+        }
     },
     actions: {}
 })

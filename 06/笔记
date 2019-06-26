@@ -1,0 +1,7 @@
+1.定义一个通用Header组件
+2.设置加购物车动画
+*使用js动画
+<transition @before-enter @enter @after-enter>
+3.学习全局组件调用(放在body中，不在app中)
+Notice.vue
+解决方案1:cube-ui create-api

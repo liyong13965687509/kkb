@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <p>你好，<span id="name"></span></p>
+</div>
+
+<script>
+    var obj={};
+    Object.defineProperty(obj,'name',{
+        get:function () {
+            return document.getElementById('name').innerHTML;
+        },
+        set:function (inner) {
+            document.getElementById('name').innerHTML=inner;
+        }
+    })
+
+    // 数据操作驱动DOM操作？
+    console.log(obj.name)
+
+    obj.name='乔峰';
+    console.log(obj.name)
+</script>
+</body>
+</html>

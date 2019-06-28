@@ -6,25 +6,47 @@
 </head>
 <body>
 <div id="app">
-    <p>你好，<span id="name"></span></p>
+    {{test}}
+    <p k-vue="test"></p>
 </div>
+<script src="kvue.js"></script>
+<script src="compile.js"></script>
 
-<script>
-    var obj={};
-    Object.defineProperty(obj,'name',{
-        get:function () {
-            return document.getElementById('name').innerHTML;
-        },
-        set:function (inner) {
-            document.getElementById('name').innerHTML=inner;
+<script type="text/javascript">
+    const o = new KVue({
+        el: '#app',
+        data: {
+            test: 'aaaaaaaa',
+            foo: {
+                bar: 'bar'
+            }
         }
-    })
+    });
+    console.log(o.$data.foo.bar);
+    o.$data.foo.bar = 'hello,vue';
+    console.log(o.$data.foo.bar);
 
-    // 数据操作驱动DOM操作？
-    console.log(obj.name)
-
-    obj.name='乔峰';
-    console.log(obj.name)
 </script>
+<!--<div id="app">-->
+<!--<p>你好，<span id="name"></span></p>-->
+<!--</div>-->
+
+<!--<script>-->
+<!--var obj={};-->
+<!--Object.defineProperty(obj,'name',{-->
+<!--get:function () {-->
+<!--return document.getElementById('name').innerHTML;-->
+<!--},-->
+<!--set:function (inner) {-->
+<!--document.getElementById('name').innerHTML=inner;-->
+<!--}-->
+<!--})-->
+
+<!--// 数据操作驱动DOM操作？-->
+<!--console.log(obj.name)-->
+
+<!--obj.name='乔峰';-->
+<!--console.log(obj.name)-->
+<!--</script>-->
 </body>
 </html>

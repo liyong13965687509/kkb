@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {isSuper} from "@babel/types";
 
 
 // 购物车组件，只展示 可以使用 函数组件
@@ -12,9 +11,9 @@ function Cart(props) {
                     <td>{d.text}</td>
                     <td>{d.price}</td>
                     <td>
-                        <button>-</button>
+                        <button onClick={() => props.reduceCount(d)}>-</button>
                         {d.count}
-                        <button>+</button>
+                        <button onClick={() => props.addCount(d)}>+</button>
                     </td>
                     <td>￥{d.price * d.count}</td>
                 </tr>
@@ -72,6 +71,25 @@ class CartSample extends Component {
 
     }
 
+    // 数量添加
+    addCount = item => {
+        const newCart = [...this.state.cart];
+        const idx = newCart.findIndex(c => c.text === item.text);
+        newCart.splice(idx, 1, {...item, count: item.count + 1});
+        this.setState({cart: newCart});
+    }
+    // 数量减少
+    reduceCount = item => {
+        const newCart = [...this.state.cart];
+        const idx = newCart.findIndex(c => c.text === item.text);
+        if(item.count===1){
+            newCart.splice(idx, 1);
+        }else{
+            newCart.splice(idx, 1, {...item, count: item.count - 1});
+        }
+        this.setState({cart: newCart});
+    }
+
     render() {
         const title = this.props.title ? <h1>{this.props.title}</h1> : null;
         // 循环：将js对象数组转换为jsx数组(类似html数组)
@@ -94,7 +112,7 @@ class CartSample extends Component {
                     {goods}
                 </ul>
                 {/*购物车*/}
-                <Cart data={this.state.cart}></Cart>
+                <Cart data={this.state.cart} addCount={this.addCount} reduceCount={this.reduceCount}></Cart>
             </div>
         );
     }

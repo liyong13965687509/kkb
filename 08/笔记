@@ -28,3 +28,22 @@ input 给一个初始值，监听它的change事件-------受控组件
 map 就是讲js数据转换成jsx数据
 
 
+方法调用写法：
+1.需要传参的必须是函数写法
+onClick={()=>props.addCount(item)}
+2.属性写法---无需传参的情况下使用
+onClick={props.addCount}
+
+虚拟DOM：因为；浏览器做DOM操作消耗非常大
+浏览器三个引擎：
+html引擎、css引擎、js引擎
+布局和绘制成本非常高
+
+原生DOM用js来表示
+通过虚拟DOM和真实DOM进行比对，有变化的才替换
+主要目的：减少页面渲染，重绘的次数
+
+react首创虚拟DOM
+
+
+

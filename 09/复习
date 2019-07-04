@@ -1,0 +1,13 @@
+1.react基本用法
+* create-react-app
+2.JSX
+3.状态State---值的改变和页面的显示息息相关的时候使用State
+要改变的值和以前的值有依赖关系用函数形式的setState
+*State+setState({})/setState(prev=>({}))
+4.组件的两种形式
+*class:要不要状态，有没有生命周期的处理
+*function
+5.组件交互：props
+子传父： props传一回调函数，让子去调用，状态提升
+6.生命周期
+

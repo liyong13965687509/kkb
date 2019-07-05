@@ -25,16 +25,16 @@ react 没有双向数据绑定，只有单向数据绑定
 
 input 给一个初始值，监听它的change事件-------受控组件
 
-map 就是讲js数据转换成jsx数据
+map 就是将js数据转换成jsx数据
 
 
-方法调用写法：
+在DOM结构中调用方法写法：
 1.需要传参的必须是函数写法
 onClick={()=>props.addCount(item)}
 2.属性写法---无需传参的情况下使用
 onClick={props.addCount}
 
-虚拟DOM：因为；浏览器做DOM操作消耗非常大
+虚拟DOM：因为浏览器做DOM操作消耗非常大
 浏览器三个引擎：
 html引擎、css引擎、js引擎
 布局和绘制成本非常高

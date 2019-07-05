@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import logo from './logo.png';
 import './App.css';
-import Button from 'antd/lib/button';
-import 'antd/dist/antd.css';
+// 具名导入
+import {Button} from 'antd';
 
 // 函数型组件传递props
 function Welcomel(props) {
@@ -42,6 +42,7 @@ class App extends Component {
             console.log(this.state.count)
         })
     }
+
     // 组件卸载
     componentWillUnmount() {
         clearInterval(this.timer);

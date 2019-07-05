@@ -82,9 +82,9 @@ class CartSample extends Component {
     reduceCount = item => {
         const newCart = [...this.state.cart];
         const idx = newCart.findIndex(c => c.text === item.text);
-        if(item.count===1){
+        if (item.count === 1) {
             newCart.splice(idx, 1);
-        }else{
+        } else {
             newCart.splice(idx, 1, {...item, count: item.count - 1});
         }
         this.setState({cart: newCart});

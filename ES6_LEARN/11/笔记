@@ -1,0 +1,14 @@
+json
+1.JSON对象
+JSON.stringify 变成json字符串
+JSON.parse     变成json对象
+
+2.简写
+名字和值（key和value）一样的 写一个就可以
+
+方法  :function一起删掉
+
+json的标准写法：
+1.只能用双引号
+2.所有的名字都必须用引号包起来
+

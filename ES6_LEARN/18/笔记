@@ -1,0 +1,51 @@
+ES6
+ES7 & ES8预览
+
+----------------------------------------------
+
+1.数组 includes:判断数组是否包含某个值
+2.数组 keys/values/entries
+               数组            json
+for...in       下标(key)       key
+for...of       值(value)       *
+
+keys=>将数组里的所有key拿出来--------0,1,2....
+values=>将数组里的所有value拿出来----12,5,8...
+entries=>将数组里的所有键值对拿出来（key:value） {key:0,value:12}.....
+entries-----实体
+
+----------------------------------------------
+json 不能作为一个迭代对象
+
+----------------------------------------------
+
+幂
+3**8
+----------------------------------------------
+
+startsWith/endsWith
+
+padStart/padEnd  可以用于时间补0
+
+---------------------------------------------
+
+语法容忍度
+
+--------------------------------------------
+
+generator yield
+async await 将异步操作写成像同步一样简洁
+async function readData(){
+    let data1=await $.ajax({url:"xxx.txt",dataType:"json"});
+    let data2=await $.ajax({url:"xxx.txt",dataType:"json"});
+    let data3=await $.ajax({url:"xxx.txt",dataType:"json"});
+}
+readData();
+
+1.不再依赖于外部的runner
+2.可以用箭头函数
+
+
+
+
+

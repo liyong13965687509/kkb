@@ -1,0 +1,74 @@
+1.变量
+var         重复声明、函数级作用域
+let const   不能重复声明、块级作用域 一个变量一个常量
+2.箭头函数
+a.方便
+    i.如果只有一个参数，()可以省
+    ii.如果只有一个return return和{}一起省
+b.修正this
+    this相对正常点
+3.参数扩展 ...arg
+... 收集剩余参数
+... 扩展
+
+默认参数： 像赋值一样，直接写
+4.数组方法
+ map------映射，一个对一个
+ reduce---总计，一堆变一个
+ filter---过滤，一堆变一些
+ forEach--循环（迭代）
+5.字符串
+startsWith 以...开头
+endsWith 以...结尾
+`${a}xxx${b}` 字符串模板
+6.Promise  封装异步操作让它看起来像同步一样简洁
+Promise.all([$.ajax(),$.ajax()]).then(res=>{},err=>{})
+7.generator 能走走停停的函数
+function *show(){
+    alert('a');
+    yield;
+    alert('b');
+}
+let obj=show();
+obj.next();
+obj.next();
+8.JSON
+stringify---json对象转成字符串
+JSON.stringify({a:12,b:'2323sd'})=>'{"a":12,"b":"2323sd"}'
+parse-------字符串转json对象
+JSON.parse('{"a":12,"b":"2323sd"}')=>{a:12,b:'2323sd'}
+9.解构赋值
+左右结构一样
+右边是正确的数据类型
+声明和赋值在一起
+let [a,b,c]=[12,'ewe',{d:'feds'}];
+10.面向对象 ----构造器和类分开了
+class User(name,age){
+    constructor(name,age){
+        this.name=name;
+        this.age=age;
+    }
+    showName(){
+        alert(this.name)
+    }
+
+    showAge(){
+        alert(this.age)
+    }
+}
+继承
+class U2 extend User{
+    constructor(name,age,level){
+        super(name,age);
+        this.level=level;
+    }
+    showLevel(){
+        alert(this.level)
+    }
+}
+let u1=new U2('张三'，18，3);
+u1.showName();
+u1.showAge();
+u1.showLevel();
+
+

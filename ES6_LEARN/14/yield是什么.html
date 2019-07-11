@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>yield</title>
+    <script>
+        function *炒菜(新鲜菜) {
+          洗菜->洗好的菜
+
+          let 干净的菜=yield 洗好的菜;
+           干净的菜->切菜->切好的菜;
+           let 切好的菜=yield 切好的菜;
+            切好的菜->炒菜->熟的菜
+
+            return 炒好的菜;
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        class User{
+            constructor(name,pass){
+                this.name=name;
+                this.pass=pass;
+            }
+
+            showName(){
+                alert(this.name);
+            }
+            showPass(){
+                alert(this.pass);
+            }
+        }
+
+
+        // extends：继承自
+        class VipUser extends User{
+            constructor(name,pass,level){
+                // 继承父类所有内容
+                super(name,pass);
+                this.level=level;
+            }
+
+            showLevel(){
+                alert(this.level)
+            }
+        }
+
+        var v1=new VipUser('blue','213243',3);
+
+        v1.showName();
+        v1.showPass();
+        v1.showLevel();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

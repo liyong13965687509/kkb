@@ -1,0 +1,68 @@
+异步操作
+1.回调
+2.Promise
+3.generator
+4.
+
+
+Promise
+Promise.all([
+    $.ajax({url:xxx,dataType:'json'})，
+    $.ajax({url:xxx,dataType:'json'})，
+    $.ajax({url:xxx,dataType:'json'})
+]).then(res=>{结束},err=>{})
+
+
+generator
+runner(function *(){
+    let data1=yield   $.ajax({url:xxx,dataType:'json'});
+    let data2=yield   $.ajax({url:xxx,dataType:'json'});
+    let data3=yield   $.ajax({url:xxx,dataType:'json'});
+
+    return 结束;
+})
+
+
+-------------------------------------------------------------------------
+
+带逻辑-Promise  (ajax拿到的数据后进行逻辑判断)
+Promise.all([
+    $.ajax({url:'getUserData',dataType:'json'})
+]).then(res=>{
+    let userData=res[0];
+
+    if(userData.type=='VIP'){
+        Promise.all([
+        $.ajax({url:'getVIPItems',dataType:'json'})
+        ]).then(res=>{},err=>{})
+    }else{
+        Promise.all([
+            $.ajax({url:'getItems',dataType:'json'})
+            ]).then(res=>{},err=>{})
+    }
+},err=>{
+alert('失败！');
+})
+
+
+带逻辑-generator (ajax拿到的数据后进行逻辑判断)
+
+runner(function *(){
+    let userData=yield $.ajax({url:'getUserData',dataType:'json'});
+
+    if(userData.type=='VIP'){
+        let items=yield $.ajax({url:'getVIPItems',dataType:'json'});
+    }else{
+        let items=yield $.ajax({url:'getItems',dataType:'json'});
+    }
+
+    结束;
+})
+
+
+---------------------------------------------------------------------------------------
+
+Promise-----一次读取一堆
+generator---逻辑判断
+
+---------------------------------------------------------------------------------------

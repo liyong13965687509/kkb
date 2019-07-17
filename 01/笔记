@@ -14,14 +14,14 @@
 
 9.数据持久化用localStorage (深度监听)
 10.组件的生命周期
-beforeCreate...组件创建之前
-created........组件创建之后
+beforeCreate...组件实例创建之前
+created........组件实例创建之后
 beforeMount....渲染DOM之前
 Mounted........渲染DOM之后
 beforeUpdate...数据更新之前
 updated........数据更新之后
-beforeDestroy..组件销毁之前
-destroyed......组件销毁之后
+beforeDestroy..组件实例销毁之前
+destroyed......组件实例销毁之后
 
 
 ---------------------------------------------------------

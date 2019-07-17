@@ -9,7 +9,7 @@ export default new Vuex.Store({
         count: 999,
         isLogin: false,//登录状态
     },
-    mutations: {// 修改数据
+        mutations: {// 修改数据
         // 操纵数据的方法
         increase(state) {
             state.count += 1;

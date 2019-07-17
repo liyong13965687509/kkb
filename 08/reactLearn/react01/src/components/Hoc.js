@@ -1,14 +1,5 @@
 import React, {Component} from 'react';
 
-
-function Kaikeba(props) {
-    return (
-        <div>
-            {props.stage} - {props.name}
-        </div>
-    )
-}
-
 // 高阶组件---对参数组件获取数据的能力进行扩展
 const withName = Comp => {
     // 甚至可以重写组件的生命周期
@@ -36,4 +27,25 @@ const withName = Comp => {
 //     }
 // }
 
-export default withName(Kaikeba);
+const  withLog=Comp=>{
+    console.log(Comp.name+'渲染了');
+    return props=><Comp {...props} />
+}
+
+@withLog
+@withName
+@withLog
+class Kaikeba extends Component{
+   render(){
+       return (
+           <div>
+               {this.props.stage} - {this.props.name}
+           </div>
+       )
+   }
+}
+
+
+export default Kaikeba;
+
+// 注解就是一个工厂函数

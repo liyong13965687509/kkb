@@ -56,6 +56,12 @@ render(){
   是不是这里用props 就要写this啊？
 }
 
+组件通信---上下文
+vue.js的privide&inject模式的来源---content
+
+Context
+Provide------提供数据者-----传递数据
+Consumer-----数据使用者-----使用数据
 
 
 

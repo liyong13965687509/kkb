@@ -4,7 +4,10 @@ import ReactDOM from 'react-dom';
 // import App from './App';
 // import CommentList from "./components/CommentList";
 // import Composition from "./components/Composition";
-import Hoc from "./components/Hoc";
+// import Hoc from "./components/Hoc";
+// import ContextSample from "./components/ContextSample";
+// import AntdTest from "./components/AntdTest";
+import KFormSample from "./components/KFormSample";
 // import Lifecycle from "./Lifecycle";
 
 
@@ -15,7 +18,10 @@ import Hoc from "./components/Hoc";
 
 // ReactDOM.render(<CommentList/>, document.querySelector('#root'));
 // ReactDOM.render(<Composition/>, document.querySelector('#root'));
-ReactDOM.render(<Hoc stage="React"/>, document.querySelector('#root'));
+// ReactDOM.render(<Hoc stage="React"/>, document.querySelector('#root'));
+// ReactDOM.render(<ContextSample/>, document.querySelector('#root'));
+// ReactDOM.render(<AntdTest/>, document.querySelector('#root'));
+ReactDOM.render(<KFormSample/>, document.querySelector('#root'));
 
 // let someProp='some value';
 // // 动态渲染

@@ -1,0 +1,9 @@
+redux----状态管理器---如：登陆状态---购物车数量
+单向数据流
+
+dispatch(action)
+派发一个动作
+
+Store：状态载体，状态管理器
+Reducer:状态更新执行者
+Action:存放数据的对象，消息的载体----dispatch派发active

@@ -7,8 +7,11 @@ import ReactDOM from 'react-dom';
 // import Hoc from "./components/Hoc";
 // import ContextSample from "./components/ContextSample";
 // import AntdTest from "./components/AntdTest";
-import KFormSample from "./components/KFormSample";
+// import KFormSample from "./components/KFormSample";
 // import Lifecycle from "./Lifecycle";
+import store from './store'
+import ReduxTest from "./components/ReduxTest";
+import {Provider} from 'react-redux'
 
 
 // ReactDOM.render(<h1>React真好用</h1>,document.querySelector('#root'));
@@ -21,7 +24,7 @@ import KFormSample from "./components/KFormSample";
 // ReactDOM.render(<Hoc stage="React"/>, document.querySelector('#root'));
 // ReactDOM.render(<ContextSample/>, document.querySelector('#root'));
 // ReactDOM.render(<AntdTest/>, document.querySelector('#root'));
-ReactDOM.render(<KFormSample/>, document.querySelector('#root'));
+// ReactDOM.render(<KFormSample/>, document.querySelector('#root'));
 
 // let someProp='some value';
 // // 动态渲染
@@ -32,5 +35,17 @@ ReactDOM.render(<KFormSample/>, document.querySelector('#root'));
 // }
 //
 // setInterval(tick,1000);
+
+function render() {
+    ReactDOM.render((
+        <Provider store={store}>
+            <ReduxTest/>
+        </Provider>
+    ), document.querySelector('#root'));
+}
+
+render()
+// 订阅，观察store里面数据的变化而变化----监听
+// store.subscribe(render)
 
 

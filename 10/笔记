@@ -7,3 +7,7 @@ dispatch(action)
 Store：状态载体，状态管理器
 Reducer:状态更新执行者
 Action:存放数据的对象，消息的载体----dispatch派发active
+
+mobx：
+redux：中间件---处理redux中的异步操作
+
